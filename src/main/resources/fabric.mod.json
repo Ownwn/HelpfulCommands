@@ -1,0 +1,34 @@
+{
+	"schemaVersion": 1,
+	"id": "helpfulcommands",
+	"version": "${version}",
+	"name": "Helpful Commands",
+	"description": "Adds a few useful client-side commands",
+	"authors": [
+		"Ownwn"
+	],
+	"contact": {
+		"homepage": "https://github.com/Ownwn",
+		"sources": "https://github.com/Ownwn/HelpfulCommands"
+	},
+	"license": "GPL-3.0",
+	"icon": "assets/helpfulcommands/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"com.ownwn.HelpfulCommands"
+		]
+	},
+	"mixins": [
+		"helpfulcommands.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.22",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
