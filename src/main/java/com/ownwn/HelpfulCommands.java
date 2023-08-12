@@ -1,6 +1,7 @@
 package com.ownwn;
 
 import com.ownwn.command.CopyCoordsCommand;
+import com.ownwn.command.FillCubeCommand;
 import com.ownwn.command.TpToCommand;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
@@ -20,6 +21,7 @@ public class HelpfulCommands implements ModInitializer {
 		ClientCommandRegistrationCallback.EVENT.register((dispatcher, access) -> {
 			CopyCoordsCommand.register(dispatcher);
 			TpToCommand.register(dispatcher);
+			FillCubeCommand.register(dispatcher);
 
 		});
 	}

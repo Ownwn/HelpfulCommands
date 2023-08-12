@@ -1,7 +1,7 @@
 package com.ownwn.command;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.ownwn.BlockUtils;
+import com.ownwn.util.BlockUtils;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.block.Blocks;
@@ -16,16 +16,16 @@ public class CopyCoordsCommand {
     public static void register(CommandDispatcher<FabricClientCommandSource> dispatcher) {
         dispatcher.register(ClientCommandManager.literal("cc").executes(context -> {
             copyBlockCoords(new Vec3i(0, 0, 0));
-            return 0;
+            return 1;
         }).then(ClientCommandManager.literal("above").executes(context -> {
             copyBlockCoords(new Vec3i(0, 1, 0));
-            return 0;
+            return 1;
         })));
 
     }
 
     public static void copyBlockCoords(Vec3i offset) {
-        BlockPos pos = BlockUtils.getBlockCoords(false);
+        BlockPos pos = BlockUtils.raycastBlock(false);
         if (pos == null || MinecraftClient.getInstance().world.getBlockState(pos) == Blocks.AIR.getDefaultState()) {
             BlockUtils.sendMessage(Text.literal("Invalid Pos!").setStyle(Style.EMPTY.withColor(Formatting.RED)));
             return;

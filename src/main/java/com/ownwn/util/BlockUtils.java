@@ -1,4 +1,4 @@
-package com.ownwn;
+package com.ownwn.util;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.text.Text;
@@ -7,7 +7,7 @@ import net.minecraft.util.math.BlockPos;
 
 public class BlockUtils {
 
-    public static BlockPos getBlockCoords(boolean getSide) {
+    public static BlockPos raycastBlock(boolean getSide) {
 
         BlockHitResult raycast = (BlockHitResult) MinecraftClient.getInstance().player.raycast(100, 1f / 20f, true);
         BlockPos pos = raycast.getBlockPos();
@@ -19,13 +19,9 @@ public class BlockUtils {
 
 
     public static String blockToString(BlockPos pos) {
-        String coordString = "";
-        coordString+= pos.getX();
-        coordString+= " ";
-        coordString+= pos.getY();
-        coordString+= " ";
-        coordString+= pos.getZ();
-        return coordString;
+        return pos.getX() + " " +
+                pos.getY() + " " +
+                pos.getZ();
     }
 
     public static void sendMessage(Text text) {
